@@ -1,1 +1,1 @@
-gunicorn innoMetrcisServ.wsgi
+web: gunicorn innoMetrcisServ.wsgi
