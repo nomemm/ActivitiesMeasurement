@@ -22,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'dtw_d8g*8so#=9842p_%lnr_=17^7dl(6!9kliu=xilqcoz#or'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sleepy-lake-73434.herokuapp.com' ]
 
 
 # Application definition
