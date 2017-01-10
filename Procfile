@@ -1,1 +1,1 @@
-web: gunicorn innoMetricsServ.wsgi
+web: gunicorn ActivitiesMeasurement.wsgi
