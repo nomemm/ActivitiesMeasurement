@@ -6,23 +6,29 @@ from rest_framework import serializers
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
+    activities = serializers.PrimaryKeyRelatedField(
+        many=True,
+        queryset=Activity.objects.all()
+    )
+
     class Meta:
         model = User
-        fields = ('url', 'username', 'email', 'groups')
+        fields = ('id', 'username', 'email', 'groups', 'activities')
 
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Group
-        fields = ('url', 'name')
+        fields = ('id', 'name')
 
 
 class ActivitySerializer(serializers.ModelSerializer):
     measurements = MeasurementSerializer(many=True)
+    user = serializers.ReadOnlyField(source='owner.username')
 
     class Meta:
         model = Activity
-        fields = ('id', 'name', 'comments', 'measurements')
+        fields = ('id', 'name', 'comments', 'measurements', 'user')
 
     def create(self, validated_data):
         measurements_data = validated_data.pop('measurements')

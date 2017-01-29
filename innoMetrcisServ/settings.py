@@ -22,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'dtw_d8g*8so#=9842p_%lnr_=17^7dl(6!9kliu=xilqcoz#or'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['sleepy-lake-73434.herokuapp.com' ]
+ALLOWED_HOSTS = ['sleepy-lake-73434.herokuapp.com','localhost:8000', 'localhost', '127.0.0.1' ]
 
 
 # Application definition
@@ -126,5 +126,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = './static/'
 
-import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
+#import dj_database_url
+#DATABASES['default'] =  dj_database_url.config()
