@@ -24,7 +24,12 @@ SECRET_KEY = 'dtw_d8g*8so#=9842p_%lnr_=17^7dl(6!9kliu=xilqcoz#or'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['sleepy-lake-73434.herokuapp.com','localhost:8000', 'localhost', '127.0.0.1' ]
+ALLOWED_HOSTS = [
+    # for HEROKU:
+    'sleepy-lake-73434.herokuapp.com',
+    # for local machine testing:
+    'localhost:8000', 'localhost', '127.0.0.1'
+]
 
 
 # Application definition
@@ -126,5 +131,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = './static/'
 
-#import dj_database_url
-#DATABASES['default'] =  dj_database_url.config()
+#Uncomment when deploying not in heroku
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
