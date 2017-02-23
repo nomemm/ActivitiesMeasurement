@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -86,14 +87,24 @@ DATABASES = {
         'NAME': 'innometrics',
         'USER': 'admin',
         'PASSWORD': 'masterkey',
-	'HOST': '127.0.0.1',
-	'PORT': '5432',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -131,6 +142,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = './static/'
 
-#Uncomment when deploying not in heroku
-import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
+# Uncomment when deploying not in heroku
+# import dj_database_url
+# DATABASES['default'] =  dj_database_url.config()

@@ -24,7 +24,6 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 
 class ActivitySerializer(serializers.ModelSerializer):
     measurements = MeasurementSerializer(many=True)
-    user = serializers.ReadOnlyField(source='owner.username')
 
     class Meta:
         model = Activity
@@ -32,6 +31,7 @@ class ActivitySerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         measurements_data = validated_data.pop('measurements')
+        print(validated_data)
         activity = Activity.objects.create(**validated_data)
         for measurement_data in measurements_data:
             Measurement.objects.create(activity=activity, **measurement_data)

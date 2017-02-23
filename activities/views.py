@@ -1,4 +1,3 @@
-from django.http import Http404
 from django.contrib.auth.models import User
 
 from rest_framework.views import APIView
@@ -9,6 +8,7 @@ from rest_framework import status, generics, permissions
 from activities.models import Activity
 from activities.serializers import ActivitySerializer, UserSerializer
 
+
 class UserList(generics.ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
@@ -18,29 +18,41 @@ class UserDetail(generics.RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+
 class ActivityList(APIView):
     """
     List all code snippets, or create a new snippet.
     """
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
     def get(self, request, format=None):
         activities = Activity.objects.all()
         serializer = ActivitySerializer(activities, many=True)
         return Response(serializer.data)
 
-    def post(self, request,format=None):
-        serializer = ActivitySerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save(user=self.request.user)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    def post(self, request, format=None):
+        noErrors = True
+        serializers = []
+        for data in request.data['activities']:
+            data['user'] = request.user.id
+            serializer = ActivitySerializer(data=data)
+            noErrors = noErrors and serializer.is_valid()
+            if serializer.is_valid():
+                serializer.save()
+                serializers.append(serializer.data)
+        if noErrors:
+            return Response(
+                {'activities': serializers},
+                status=status.HTTP_201_CREATED
+            )
 
 
 class ActivityDetail(APIView):
     """
-    Retrieve, update or delete a code snippet.
+    Retrieve, update or delete a code activity.
     """
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
     def get_object(request, pk):
         try:
             return Activity.objects.get(pk=pk)
