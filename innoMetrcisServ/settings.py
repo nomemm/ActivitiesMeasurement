@@ -26,7 +26,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     # for HEROKU:
-    'sleepy-lake-73434.herokuapp.com',
+    'aqueous-escarpment-80312.herokuapp.com',
     # for local machine testing:
     'localhost:8000', 'localhost', '127.0.0.1'
 ]
@@ -143,5 +143,5 @@ STATIC_URL = '/static/'
 STATIC_ROOT = './static/'
 
 # Uncomment when deploying not in heroku
-# import dj_database_url
-# DATABASES['default'] =  dj_database_url.config()
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
