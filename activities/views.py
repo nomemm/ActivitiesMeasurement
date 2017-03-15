@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.shortcuts import render_to_response
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -21,14 +22,14 @@ class UserDetail(generics.RetrieveAPIView):
 
 class ActivityList(APIView):
     """
-    List all code snippets, or create a new snippet.
+    List all activity list or create.
     """
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
     def get(self, request, format=None):
-        activities = Activity.objects.all()
-        serializer = ActivitySerializer(activities, many=True)
-        return Response(serializer.data)
+        # activities = Activity.objects.all()
+        # serializer = ActivitySerializer(activities, many=True)
+        return render_to_response('activities/index.html')
 
     def post(self, request, format=None):
         noErrors = True
@@ -49,7 +50,7 @@ class ActivityList(APIView):
 
 class ActivityDetail(APIView):
     """
-    Retrieve, update or delete a code activity.
+    Retrieve, update or delete an activity.
     """
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 

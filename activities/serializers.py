@@ -31,7 +31,6 @@ class ActivitySerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         measurements_data = validated_data.pop('measurements')
-        print(validated_data)
         activity = Activity.objects.create(**validated_data)
         for measurement_data in measurements_data:
             Measurement.objects.create(activity=activity, **measurement_data)
