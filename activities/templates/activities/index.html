@@ -38,14 +38,22 @@
                        'height':300};
 
         // Instantiate and draw our chart, passing in some options.
-        var table = new google.visualization.Table(document.getElementById('chart_div'));
+        var table = new google.visualization.Table(document.getElementById('table_div'));
 	table.draw(data, {showRowNumber: false, width: '100%'});
+
+	google.visualization.events.addListener(table, 'select', function(){
+		var selection = table.getSelection();
+		for (var i = 0; i < selection.length; i++) {
+		    var item = selection[i];
+			alert(item.row);
+		}
+	});
       }
     </script>
   </head>
 
   <body>
     <!--Div that will hold the pie chart-->
-    <div id="chart_div"></div>
+    <div id="table_div"></div>
   </body>
 </html>
