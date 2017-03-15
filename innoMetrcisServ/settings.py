@@ -139,13 +139,12 @@ USE_TZ = True
 
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),  # project-wide static files
-    '/var/www/static/',
+    os.path.join(BASE_DIR, 'staticfiles'),  # project-wide static files
 )
-
+STATIC_ROOT = './static/'
 STATIC_URL = '/static/'
 
 
 # Uncomment when deploying in heroku
-import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
+# import dj_database_url
+# DATABASES['default'] =  dj_database_url.config()
