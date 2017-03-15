@@ -146,5 +146,5 @@ STATIC_URL = '/static/'
 
 
 # Uncomment when deploying in heroku
-# import dj_database_url
-# DATABASES['default'] =  dj_database_url.config()
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
