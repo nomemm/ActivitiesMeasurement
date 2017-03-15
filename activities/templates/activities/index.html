@@ -1,52 +1,51 @@
-<!DOCTYPE HTML>
-<html manifest="">
-{% load staticfiles %} 
-<head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, user-scalable=yes">
-
-    <title>activities</title>
-
-    
+<html>
+  <head>
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-        var Ext = Ext || {}; // Ext namespace won't be defined yet...
 
-        // This function is called by the Microloader after it has performed basic
-        // device detection. The results are provided in the "tags" object. You can
-        // use these tags here or even add custom tags. These can be used by platform
-        // filters in your manifest or by platformConfig expressions in your app.
-        //
-        Ext.beforeLoad = function (tags) {
-            var s = location.search,  // the query string (ex "?foo=1&bar")
-                profile;
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['table']});
 
-            // For testing look for "?classic" or "?modern" in the URL to override
-            // device detection default.
-            //
-            if (s.match(/\bclassic\b/)) {
-                profile = 'classic';
-            }
-            else if (s.match(/\bmodern\b/)) {
-                profile = 'modern';
-            }
-            else {
-                profile = tags.desktop ? 'classic' : 'modern';
-                //profile = tags.phone ? 'modern' : 'classic';
-            }
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
 
-            Ext.manifest = profile; // this name must match a build profile name
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
 
-            // This function is called once the manifest is available but before
-            // any data is pulled from it.
-            //
-            //return function (manifest) {
-                // peek at / modify the manifest object
-            //};
-        };
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+	{% for keys in activities.0.keys %}
+		{% if keys != 'measurements' %}
+        		data.addColumn('string', '{{ keys }}');
+		{% endif %}
+	{% endfor %}
+
+	{% for activity in activities %}
+		data.addRow([
+			'{{activity.id}}',
+			'{{activity.name}}',
+			'{{activity.comments}}',
+			'{{activity.user}}'
+		]);
+	{% endfor %}
+
+        // Set chart options
+        var options = {'title':'How Much Pizza I Ate Last Night',
+                       'width':400,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        var table = new google.visualization.Table(document.getElementById('chart_div'));
+	table.draw(data, {showRowNumber: false, width: '100%'});
+      }
     </script>
-    
-    
-</head>
-<body></body>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <div id="chart_div"></div>
+  </body>
 </html>

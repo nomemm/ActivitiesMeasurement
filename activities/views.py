@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -27,9 +27,11 @@ class ActivityList(APIView):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
     def get(self, request, format=None):
-        # activities = Activity.objects.all()
-        # serializer = ActivitySerializer(activities, many=True)
-        return render_to_response('activities/index.html')
+        activities = Activity.objects.all()
+        serializer = ActivitySerializer(activities, many=True)
+        return render(request, 'activities/index.html', {
+            'activities': serializer.data,
+        })
 
     def post(self, request, format=None):
         noErrors = True
