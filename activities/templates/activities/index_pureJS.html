@@ -1,0 +1,71 @@
+<html>
+  <head>
+  {% load staticfiles %} 
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart', 'table', 'sankey']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+      
+
+	  function openDashboard(tabName){
+		  var i;
+          var x = document.getElementsByClassName("dashboardTab");
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none"; 
+          }
+          document.getElementById(tabName).style.display = "block"; 
+	  }
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        var dataTableWidth = '100%';
+        var dataTableHeight = '100%';
+        // Set list of interest
+        
+      };
+    </script>
+  </head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3-theme-black.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <body id="myPage">
+    <header class="w3-container w3-theme w3-padding" id="myHeader">
+      <div class="w3-center">
+        <h4>Career development for aspiring entrepreneurs.</h4>
+        <h1 class="w3-xxxlarge w3-animate-bottom">Assignment 1: Stakeholders.</h1>
+        <div class="w3-padding-32">
+        </div>
+      </div>
+    </header>
+
+<!-- dashboards list -->
+    <ul class="w3-navbar">
+      {% for tab in tabs %}
+      <li><a href="javascript:void(0)" onclick="openDashboard('{{ tab.name }}')">{{ tab.picture }}</a></li>
+      {% endfor %}
+      <li><a href="javascript:void(0)" onclick="openDashboard('NewTab')" src='{{ add.picture }}'></li>
+    </ul>
+<!-- dashboards definition -->
+<!-- new -->
+    <div id="NewTab" class="dashboardTab" style="display:none">
+      <h1>Create a new dashboard.</h1>
+    </div>
+<!-- existing dashboards -->
+	{% for tab in tabs %}
+	<div id="NewTab" class="dashboardTab" style="display:none">
+      <h1>{{ tab.name }}</h1>
+    </div>
+    {% endfor %}
+
+   
+  </body>
+</html>

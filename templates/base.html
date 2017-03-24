@@ -1,17 +1,10 @@
 <!-- Do NOT put any DOCTYPE here unless you want problems in IEs. -->
-{% load staticfiles %} 
+{% load static %} 
 <html>
 
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <!-- Importing Extjs library -->
-    <script type="text/javascript" src="{% static 'extjs/ext-all-debug.js' %}"></script>
-    <script type="text/javascript" src="{% static 'extjs/classic/theme-triton/theme-triton-debug.js' %}"></script>
-    
-    
-    <!-- Importing the stylesheet triton -->
-    <link rel="stylesheet" type="text/css" href="{% static 'extjs/classic/theme-triton/resources/theme-triton-all-debug.css' %}">
     
     {% block head %}{% endblock %}
     

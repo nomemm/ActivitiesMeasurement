@@ -137,6 +137,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'staticfiles'),  # project-wide static files
@@ -145,6 +146,8 @@ STATIC_ROOT = './static/'
 STATIC_URL = '/static/'
 
 
+LOGIN_REDIRECT_URL = '/activities'
+
 # Uncomment when deploying in heroku
-import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
+# import dj_database_url
+# DATABASES['default'] =  dj_database_url.config()

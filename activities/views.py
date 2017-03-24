@@ -20,6 +20,12 @@ class UserDetail(generics.RetrieveAPIView):
     serializer_class = UserSerializer
 
 
+class CreateUserView(generics.CreateAPIView):
+    model = User
+    permission_classes = (permissions.AllowAny,)
+    serializer_class = UserSerializer
+
+
 class ActivityList(APIView):
     """
     List all activity list or create.
@@ -29,8 +35,9 @@ class ActivityList(APIView):
     def get(self, request, format=None):
         activities = Activity.objects.all()
         serializer = ActivitySerializer(activities, many=True)
+        print(request.user)
         return render(request, 'activities/index.html', {
-            'activities': serializer.data,
+            'activities': serializer.data
         })
 
     def post(self, request, format=None):
