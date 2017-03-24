@@ -53,6 +53,7 @@ coverage.xml
 # Django stuff:
 *.log
 local_settings.py
+innoMetricsServ/settings.py
 
 # Flask stuff:
 instance/
@@ -72,6 +73,7 @@ target/
 
 # pyenv
 .python-version
+innomMetricsServ/bin/*
 
 # celery beat schedule file
 celerybeat-schedule

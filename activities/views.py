@@ -35,10 +35,7 @@ class ActivityList(APIView):
     def get(self, request, format=None):
         activities = Activity.objects.all()
         serializer = ActivitySerializer(activities, many=True)
-        print(request.user)
-        return render(request, 'activities/index.html', {
-            'activities': serializer.data
-        })
+        return Response(serializer.data)
 
     def post(self, request, format=None):
         noErrors = True
