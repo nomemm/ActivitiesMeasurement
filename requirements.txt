@@ -4,3 +4,4 @@ djangorestframework>=3.5.3
 dj-database-url
 gunicorn
 coreapi
+django-dash
