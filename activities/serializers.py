@@ -8,14 +8,14 @@ from rest_framework import serializers
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     activities = serializers.PrimaryKeyRelatedField(
-        many=True,
-        queryset=Activity.objects.all()
+        read_only=True,
+        many=True
     )
     password = serializers.CharField(write_only=True)
 
     class Meta:
         model = get_user_model()
-        fields = ('id', 'username', 'password', 'email', 'groups', 'activities')
+        fields = ('id', 'username', 'password', 'email', 'activities')
 
     def create(self, validated_data):
         user = get_user_model().objects.create(

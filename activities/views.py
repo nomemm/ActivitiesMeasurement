@@ -10,19 +10,31 @@ from activities.models import Activity
 from activities.serializers import ActivitySerializer, UserSerializer
 
 
+class DownloadList(APIView):
+    permission_classes = (permissions.AllowAny,)
+
+    def get(self, request, format=None):
+        return render(
+            request,
+            'activities/installer.html'
+        )
+
+
 class UserList(generics.ListAPIView):
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
 
 class UserDetail(generics.RetrieveAPIView):
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
 
 class CreateUserView(generics.CreateAPIView):
-    model = User
     permission_classes = (permissions.AllowAny,)
+    model = User
     serializer_class = UserSerializer
 
 

@@ -13,15 +13,25 @@ from django.conf import settings
 router = Router()
 
 urlpatterns = [
-    url(r'^', include('activities.urls')),
+    # intro and installation info:
+    url(r'^$', views.DownloadList.as_view()),
+
+    # users management:
     url(r'^users/$', views.UserList.as_view()),
     url(r'^users/(?P<pk>[0-9]+)/$', views.UserDetail.as_view()),
     url(r'^admin/', admin.site.urls),
+
+    # applications:
     url(r'^measurements/', include('measurements.urls')),
-    url(r'^register/$', views.CreateUserView.as_view(), name='user'),
+    url(r'^', include('activities.urls')),
+
+    # registration and authentication:
     url(r'^api-auth/', include('rest_framework.urls',
                                namespace='rest_framework')),
     url(r'^api-token-auth/', rest_views.obtain_auth_token),
-    url(r'^router/$', router, name='router'),
-    url(r'^router/api/$', router.api, name='api'),
+    url(r'^register/$', views.CreateUserView.as_view(), name='user'),
+
+    # for dashboards:
+    # url(r'^dashboard/', include('dash.urls')),
+    # url(r'^', include('dash.contrib.apps.public_dashboard.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

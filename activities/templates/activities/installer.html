@@ -1,0 +1,83 @@
+<html>
+<head>
+<!--Load the AJAX API-->
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
+	
+<script type="text/javascript">
+	// Pagination
+	function openTab(cityName) {
+		var i;
+		var x = document.getElementsByClassName("tabText");
+		for (i = 0; i < x.length; i++) {
+			x[i].style.display = "none";
+		}
+		document.getElementById(cityName).style.display = "block";
+	}
+</script>
+</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="http://bootswatch.com/flatly/bootstrap.min.css" type="text/css">
+<link rel="stylesheet"
+	href="http://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+<body id="myPage">
+	<header class="w3-container w3-theme w3-padding" id="myHeader">
+		<div class="w3-center">
+			<h4>Innopolis University dashborad</h4>
+			<h1 class="w3-xxxlarge w3-animate-bottom">InnoMetrics</h1>
+			<div class="w3-padding-32"></div>
+		</div>
+	</header>
+
+	<ul class="w3-navbar">
+		<li><a href="javascript:void(0)" onclick="openTab('macOS')">macOS</a></li>
+		<li><a href="javascript:void(0)" onclick="openTab('Linux')">Linux</a></li>
+		<li><a href="javascript:void(0)" onclick="openTab('Windows')">Windows</a></li>
+		<li><a href="javascript:void(0)" onclick="openTab('Project')">Project</a></li>
+	</ul>
+	<div id="Intro" class="tabText" style="display: block">
+		Greetings, traveller/manager.
+		<br>Here you will not see any dashboards. Yet. 
+		This feature will come soon. You can register now and start collecting 
+		data so that you'll have data when we upload dashboards software here.
+		<br>Stay tuned.
+	</div>
+	<br> You will need to register before you install. Registration is available through <a href='register'>here.</a>
+	<div id="macOS" class="tabText" style="display: none">
+		TODO: add installation description
+		<br> <a href='/downloadables/InnoMetrics_mac.dmg' download>macOS</a>
+	</div>
+	<div id="Linux" class="tabText" style="display: none">
+		TODO: add installation description 
+		<!--<br><a href='/downloadables/InnoMetrics.dmg' download>Linux</a> -->
+		<br>Cooming up soon!
+	</div>
+	<div id="Windows" class="tabText" style="display: none">
+		TODO: add installation description
+		<br> <!--<a href='/downloadables/InnoMetrics.dmg' download>Windows</a> -->Cooming up soon!
+	</div>
+
+
+	</div>
+
+	<div id="Project" class="tabText" style="display: none">
+		<div class="w3-row">
+			<br> TODO: fill <br> if this will be accepted
+		</div>
+		<h2>Project description</h2>
+
+		<h3>Team</h3>
+		Students:
+		<h3>Our metrics</h3>
+		<div v class="w3-container w3-padding-64 w3-center" id="team"></div>
+	</div>
+
+</body>
+</html>

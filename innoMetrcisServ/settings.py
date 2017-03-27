@@ -45,6 +45,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework.authtoken',
+    'dash',
+    'dash.contrib.layouts.android',
+    'dash.contrib.layouts.bootstrap2',
+    'dash.contrib.layouts.windows8',
+    'dash.contrib.plugins.dummy',
+    'dash.contrib.plugins.image',
+    'dash.contrib.plugins.memo',
+    'dash.contrib.plugins.rss_feed',
+    'dash.contrib.plugins.url',
+    'dash.contrib.plugins.video',
+    'dash.contrib.plugins.weather',
 ]
 
 MIDDLEWARE = [
@@ -146,7 +157,7 @@ STATIC_ROOT = './static/'
 STATIC_URL = '/static/'
 
 
-LOGIN_REDIRECT_URL = '/activities'
+LOGIN_REDIRECT_URL = '/activities/'
 
 # Uncomment when deploying in heroku
 # import dj_database_url
