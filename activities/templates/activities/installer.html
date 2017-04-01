@@ -40,28 +40,38 @@
 		<li><a href="javascript:void(0)" onclick="openTab('macOS')">macOS</a></li>
 		<li><a href="javascript:void(0)" onclick="openTab('Linux')">Linux</a></li>
 		<li><a href="javascript:void(0)" onclick="openTab('Windows')">Windows</a></li>
-		<li><a href="javascript:void(0)" onclick="openTab('Project')">Project</a></li>
+		<!-- <li><a href="javascript:void(0)" onclick="openTab('Project')">Project</a></li>  --> 
 	</ul>
 	<div id="Intro" class="tabText" style="display: block">
-		Greetings, traveller/manager.
+		Greetings, manager.
 		<br>Here you will not see any dashboards. Yet. 
 		This feature will come soon. You can register now and start collecting 
 		data so that you'll have data when we upload dashboards software here.
 		<br>Stay tuned.
 	</div>
-	<br> You will need to register before you install. Registration is available through <a href='register'>here.</a>
+	<br> You will need to register before uploading data. Registration is available through <a href='register'>here.</a>
 	<div id="macOS" class="tabText" style="display: none">
-		TODO: add installation description
-		<br> <a href='/downloadables/InnoMetrics_mac.dmg' download>macOS</a>
+	<ul>
+		<li> Download the application <a href='/downloadables/InnoMetrics_mac.dmg' download>via this link</a> </li>
+		<li> double-click on downloaded file </li>
+		<li> Run InnoMtricsCollector from Applications (not from .dmg file) to start collecting metrics. </li>
+		<li> Drag-and-drop InnoMetricsCollector and InnometrcisTransfer into Applications folder </li>
+		<li> Run InnometricsTransfer from Applications (not from .dmg file) to configure already collected metrics and send them to the server.</li>
+	</ul>
+		<br> 
 	</div>
 	<div id="Linux" class="tabText" style="display: none">
-		TODO: add installation description 
-		<!--<br><a href='/downloadables/InnoMetrics.dmg' download>Linux</a> -->
-		<br>Cooming up soon!
+	<ul>
+		<li> Download installation file: <a href='/downloadables/InnoMetrics_linux.bz2.run' download>Linux </a> </li>
+		<li> Need to open Terminal, and go to the directory where the installation file downloaded(InnoMetrics.bz2.run);</li>
+		<li> Make installation utilite executable: <br><code>chmod u+x InnoMetrics.bz2.run;</code></li>
+		<li> Install programm by command :  <br><code>sudo ./InnoMetrics.bz2.run;</code></li>
+		<li> Run program by finding program in Dash or just type InnoMetrics in terminal.</li>
+	</ul>
 	</div>
 	<div id="Windows" class="tabText" style="display: none">
-		TODO: add installation description
-		<br> <!--<a href='/downloadables/InnoMetrics.dmg' download>Windows</a> -->Cooming up soon!
+		Here you can find an installer for your system:
+		<br> <a href='/downloadables/InnoMetrics_win.exe' download>Windows installer</a>
 	</div>
 
 
