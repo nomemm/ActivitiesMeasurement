@@ -70,12 +70,14 @@
 	</ul>
 	</div>
 	<div id="Windows" class="tabText" style="display: none">
-		<br> Make sure to have MSSQL LocalDb Server installed on your machine.
+
 		To install "Metrics Collection System" download two files:
 		<ul>
 		<li> <a href='/downloadables/MetricsCollectionSystem.msi' download>MetricsCollectionSystem.msi</a></li>
 		<li><a href='/downloadables/InnoMetrics_win.exe' download>InnoMetrics_win.exe</a></li>
 		</ul>
+		
+		<br> Make sure to have MSSQL LocalDb Server installed on your machine.
 		
 		<br>Run InnoMetrics_win.exe file and follow instructions.
 		<!-- You'll see welcome window. Click "Next".
@@ -85,13 +87,12 @@
 		<br>The system is installed on the machine. Its launchers can be found in the folder, selected for installation. By default the folder is 
 		C:\(ProgramFiles of ProgramFiles (x86))\Innopolis University\Metrics Collection System
 		
-		<br>There're two .exe files there:
-		<ul>
-		<li> MetricsCollectorApplication.exe</li>
-		<li> MetricsSenderApplication.exe</li>
-		</ul>
+		There're two .exe files there:
+		1. MetricsCollectorApplication.exe
+		2. MetricsSenderApplication.exe
+		
 		MetricsCollectorApplication.exe is an application for tracking user activities.
-		<br>MetricsSenderApplication.exe is an application for observing collected activities, and sending activities to a server.
+		MetricsSenderApplication.exe is an application for observing collected activities, and sending activities to a server.
 		
 	</div>
 
