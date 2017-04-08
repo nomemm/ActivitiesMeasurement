@@ -15,7 +15,8 @@ router = Router()
 urlpatterns = [
     # intro and installation info:
     url(r'^$', views.DownloadList.as_view()),
-    # url(r'^downloadables/.*$', views.DownloadList.as_view()),
+    url(r'^downloadables/$', views.DownloadList.as_view()),
+    url(r'^downloadables/(?P<path>.+)$', views.DownloadList.as_view()),
 
     # users management:
     url(r'^users/$', views.UserList.as_view()),

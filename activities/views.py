@@ -1,10 +1,12 @@
+import os
+
 from django.contrib.auth.models import User
 from django.shortcuts import render
+from django.http import HttpResponse, Http404
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, generics, permissions
-
 
 from activities.models import Activity
 from activities.serializers import ActivitySerializer, UserSerializer
@@ -13,11 +15,21 @@ from activities.serializers import ActivitySerializer, UserSerializer
 class DownloadList(APIView):
     permission_classes = (permissions.AllowAny,)
 
-    def get(self, request, format=None):
-        return render(
-            request,
-            'activities/installer.html'
-        )
+    def get(self, request, path=None, format=None):
+        if not path:
+            return render(
+                request,
+                'activities/installer.html'
+            )
+        else:
+            file_path = os.path.join('downloadables/', path)
+            if os.path.exists(file_path):
+                with open(file_path, 'rb') as fh:
+                    response = HttpResponse(fh.read(), content_type="application/octet-stream")
+                    response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+                    return response
+            else:
+                return Http404()
 
 
 class UserList(generics.ListAPIView):
