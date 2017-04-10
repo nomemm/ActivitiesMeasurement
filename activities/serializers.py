@@ -1,8 +1,9 @@
-from django.contrib.auth.models import Group
 from django.contrib.auth import get_user_model
+
 from activities.models import Activity
 from measurements.models import Measurement
 from measurements.serializers import MeasurementSerializer
+
 from rest_framework import serializers
 
 
@@ -24,12 +25,6 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
         return user
-
-
-class GroupSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Group
-        fields = ('id', 'name')
 
 
 class ActivitySerializer(serializers.ModelSerializer):
