@@ -1,67 +1,70 @@
 <?xml version="1.0"?>
 <sharpUpdate>
 	<update appId="MetricsCollectionSystem">
-		<version>1.0.0.2</version>
-		<url>https://www.dropbox.com/s/sndueywqos7a5lt/CommonModels.dll?dl=1</url>
+		<version>1.0.0.5</version>
+		<url>http://innometrics.guru:8000/downloadables/win/CommonModels.dll</url>
 		<fileName>CommonModels.dll</fileName>
-		<md5>9C26FBDFF61E0A5D5279220862DBC44D</md5>
+		<md5>C5A7AD37991B15691307B7A10F52B6C5</md5>
 		<description></description>
 		<launchArgs></launchArgs>
 	</update>
 	<update appId="MetricsCollectionSystem">
-		<version>1.0.0.2</version>
-		<url>https://www.dropbox.com/s/96g8iflnyoki7vn/MetricsProcessing.dll?dl=1</url>
+		<version>1.0.0.5</version>
+		<url>http://innometrics.guru:8000/downloadables/win/MetricsProcessing.dll</url>
 		<fileName>MetricsProcessing.dll</fileName>
-		<md5>0A1314482B315F2A8DF38622CF1C003E</md5>
+		<md5>F550ABB3450DBDFB340CCEC424DB00F8</md5>
 		<description></description>
 		<launchArgs></launchArgs>
 	</update>
 	<update appId="MetricsCollectionSystem">
-		<version>1.0.0.2</version>
-		<url>https://www.dropbox.com/s/l1x5tcknrns0ope/MetricsSenderApplication.exe.config?dl=1</url>
-		<fileName>MetricsSenderApplication.exe.config</fileName>
-		<md5>8C8951D0ADC76DE276AF2906B5A47E47</md5>
-		<description></description>
-		<launchArgs></launchArgs>
-	</update>
-	<update appId="MetricsCollectionSystem">
-		<version>1.0.0.2</version>
-		<url>https://www.dropbox.com/s/i0hjb0wcmqijylu/Transmission.dll?dl=1</url>
+		<version>1.0.0.5</version>
+		<url>http://innometrics.guru:8000/downloadables/win/Transmission.dll</url>
 		<fileName>Transmission.dll</fileName>
-		<md5>1A25574136BE32BE0914CC3B80614D45</md5>
+		<md5>6B627BB5A7BD6044339665F2A6AB5688</md5>
 		<description></description>
 		<launchArgs></launchArgs>
 	</update>
 	<update appId="MetricsCollectionSystem">
-		<version>1.0.0.2</version>
-		<url>https://www.dropbox.com/s/a6var0f5j4q926s/Update.dll?dl=1</url>
+		<version>1.0.0.5</version>
+		<url>http://innometrics.guru:8000/downloadables/win/Update.dll</url>
 		<fileName>Update.dll</fileName>
-		<md5>AEED2C3097F89BF08E555C66E26356D3</md5>
+		<md5>C8E5D74CC4374E2BD769412F8E95CAE3</md5>
 		<description></description>
 		<launchArgs></launchArgs>
 	</update>
 	<update appId="MetricsCollectionSystem">
-		<version>1.0.0.2</version>
-		<url>https://www.dropbox.com/s/j91xh4g54aayibc/WindowsMetrics.dll?dl=1</url>
+		<version>1.0.0.5</version>
+		<url>http://innometrics.guru:8000/downloadables/win/WindowsMetrics.dll</url>
 		<fileName>WindowsMetrics.dll</fileName>
-		<md5>43ED1DB1E446D4B6BDE42A08CE814E88</md5>
+		<md5>D48FBF9B5206E5147A978E6C1A70D4E0</md5>
 		<description></description>
 		<launchArgs></launchArgs>
 	</update>	
 
+  
+  
+  
 	<update appId="MetricsCollectionSystem">
-		<version>1.0.0.2</version>
-		<url>https://www.dropbox.com/s/54ypdnpjrmsvby4/MetricsCollectorApplication.exe?dl=1</url>
-		<fileName>MetricsCollectorApplication.exe</fileName>
-		<md5>D53D79C0AA8422D6381D51DF49349521</md5>
+		<version>1.0.0.5</version>
+		<url>http://innometrics.guru:8000/downloadables/win/MetricsSenderApplication.exe.config</url>
+		<fileName>MetricsSenderApplication.exe.config</fileName>
+		<md5>403E202882842F3A9A9909B005EB9127</md5>
 		<description></description>
 		<launchArgs></launchArgs>
 	</update>
 	<update appId="MetricsCollectionSystem">
-		<version>1.0.0.2</version>
-		<url>https://www.dropbox.com/s/1anw8ueb1knh78c/MetricsSenderApplication.exe?dl=1</url>
+		<version>1.0.0.5</version>
+		<url>http://innometrics.guru:8000/downloadables/win/MetricsCollectorApplication.exe</url>
+		<fileName>MetricsCollectorApplication.exe</fileName>
+		<md5>0E1A682CAE3FC84EA2F85974557F06AB</md5>
+		<description></description>
+		<launchArgs></launchArgs>
+	</update>
+	<update appId="MetricsCollectionSystem">
+		<version>1.0.0.5</version>
+		<url>http://innometrics.guru:8000/downloadables/win/MetricsSenderApplication.exe</url>
 		<fileName>MetricsSenderApplication.exe</fileName>
-		<md5>4590116BCE97264D026F0ACC8E6F104E</md5>
+		<md5>E5E0ABD10082829CF875B335298D2453</md5>
 		<description></description>
 		<launchArgs></launchArgs>
 	</update>
