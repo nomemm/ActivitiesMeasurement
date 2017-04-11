@@ -34,6 +34,6 @@ urlpatterns = [
     url(r'^register/$', views.CreateUserView.as_view(), name='user'),
 
     # for dashboards:
-    # url(r'^dashboard/', include('dash.urls')),
-    # url(r'^', include('dash.contrib.apps.public_dashboard.urls')),
+    url(r'^dashboard/', include('dash.urls')),
+    url(r'^', include('dash.contrib.apps.public_dashboard.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
