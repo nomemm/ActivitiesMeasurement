@@ -3,6 +3,7 @@ import os
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.http import HttpResponse, Http404
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -55,10 +56,20 @@ class ActivityList(APIView):
     List all activity list or create.
     """
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    page_size = 20
 
     def get(self, request, format=None):
-        activities = Activity.objects.all()
-        serializer = ActivitySerializer(activities, many=True)
+        activities = Activity.objects.filter(user=request.user.id)
+        paginator = Paginator(activities, self.page_size)
+        page = request.GET.get('page')
+        try:
+            res = paginator.page(page)
+        except PageNotAnInteger:
+            res = paginator.page(1)
+        except EmptyPage:
+            res = paginator.page(paginator.num_pages)
+
+        serializer = ActivitySerializer(res, many=True)
         return Response(serializer.data)
 
     def post(self, request, format=None):
