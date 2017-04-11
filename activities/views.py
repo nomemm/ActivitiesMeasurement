@@ -75,6 +75,7 @@ class ActivityList(APIView):
     def post(self, request, format=None):
         noErrors = True
         serializers = []
+        brokenSerializers = []
         for data in request.data['activities']:
             data['user'] = request.user.id
             serializer = ActivitySerializer(data=data)
@@ -82,10 +83,20 @@ class ActivityList(APIView):
             if serializer.is_valid():
                 serializer.save()
                 serializers.append(serializer.data)
+            else:
+                brokenSerializers.append(serializer)
         if noErrors:
             return Response(
                 {'activities': serializers},
                 status=status.HTTP_201_CREATED
+            )
+        else:
+            print("Error when inserting new data accured with this tuples:" +
+                  repr(brokenSerializers)
+                  )
+            return Response(
+                {'activities': serializer},
+                status=status.HTTP_400_BAD_REQUEST
             )
 
 
