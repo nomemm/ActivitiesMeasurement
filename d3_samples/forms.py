@@ -21,6 +21,6 @@ class ChartForm(forms.Form, DashboardPluginFormBase):
     possible_filters = set(i.name for i in Measurement.objects.only('name'))
     data = forms.ChoiceField(
         choices=[
-            (i,i) for i in possible_filters
+            (i, i) for i in possible_filters
         ]
     )
