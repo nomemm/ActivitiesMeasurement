@@ -7,3 +7,9 @@ class MeasurementSerializer(serializers.ModelSerializer):
     class Meta:
         model = Measurement
         fields = ('id', 'name', 'value', 'type', 'activity')
+
+
+class MeasurementSaveSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        fields = ('name', 'value', 'type')
+        model = Measurement

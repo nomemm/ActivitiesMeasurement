@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 
 from activities.models import Activity
 from measurements.models import Measurement
-from measurements.serializers import MeasurementSerializer
+from measurements.serializers import MeasurementSaveSerializer
 
 from rest_framework import serializers
 
@@ -28,7 +28,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class ActivitySerializer(serializers.ModelSerializer):
-    measurements = MeasurementSerializer(many=True)
+    measurements = MeasurementSaveSerializer(many=True)
 
     class Meta:
         model = Activity
